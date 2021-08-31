@@ -202,6 +202,7 @@ initError:
     // Close the video file
     if (pFormatCtx) avformat_close_input(&pFormatCtx);
 
+    /*
     [_audioController _stopAudio];
     [_audioController release];
     _audioController = nil;
@@ -211,7 +212,7 @@ initError:
     
     [audioPacketQueueLock release];
     audioPacketQueueLock = nil;
-    
+    */
 	[super dealloc];
 }
 
@@ -226,7 +227,7 @@ initError:
             // Decode video frame
             avcodec_decode_video2(pCodecCtx, pFrame, &frameFinished, &packet);
         }
-        
+        /*
         if (packet.stream_index==audioStream) {
             // NSLog(@"audio stream");
             [audioPacketQueueLock lock];
@@ -245,6 +246,7 @@ initError:
                 [_audioController enqueueBuffer:emptyAudioBuffer];
             }
         }
+         */
 	}
     
 	return frameFinished!=0;

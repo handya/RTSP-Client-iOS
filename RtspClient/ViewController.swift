@@ -9,17 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
     var video: RTSPPlayer!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        video = RTSPPlayer(video: "rtsp://admin:admin@192.168.150.243", usesTcp: false)
-        video.outputWidth = Int32(UIScreen.main.bounds.width)
-        video.outputHeight = Int32(UIScreen.main.bounds.height)
+        video = RTSPPlayer(video: "rtsp://10.1.1.1:7447/JPOZkA3ym9XnokPm", usesTcp: false)
+        video.outputWidth = 1024
+        video.outputHeight = 576
         video.seekTime(0.0)
         
       let timer = Timer.scheduledTimer(timeInterval: 1.0/30, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
@@ -31,7 +29,7 @@ class ViewController: UIViewController {
             timer.invalidate()
             video.closeAudio()
         }
-        imageView.image = video.currentImage
+       // imageView.image = video.currentImage
     }
 
     override func didReceiveMemoryWarning() {

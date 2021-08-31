@@ -44,7 +44,7 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
 
 - (IBAction)playAudio:(UIButton*)sender
 {
-    [self _startAudio];
+   // [self _startAudio];
 }
 
 - (IBAction)pauseAudio:(UIButton*)sender
